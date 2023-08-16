@@ -14,7 +14,6 @@ namespace ContactBookApp.Infrastructure.RepositoryBase.Implementation
         public async Task CreateAsync(T entity) => await _dataContext.AddAsync(entity);
         public async Task CreateRangeAsync(IEnumerable<T> entities) => await _dataContext.AddRangeAsync(entities);
         public void Delete(T entity) => _dataContext.Remove(entity);
-        public void DeleteRange(IEnumerable<T> entities) => _dataContext.RemoveRange(entities);
         public void Update(T entity) => _dataContext.Update(entity);
     }
 }

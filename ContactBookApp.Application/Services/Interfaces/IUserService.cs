@@ -1,4 +1,6 @@
-﻿using ContactBookApp.Domain.Dtos.Requests;
+﻿using ContactBook.Shared.RequestParameter.Common;
+using ContactBook.Shared.RequestParameter.ModelParameters;
+using ContactBookApp.Domain.Dtos.Requests;
 using ContactBookApp.Domain.Dtos.Responses;
 
 namespace ContactBookApp.Application.Services.Interfaces
@@ -6,10 +8,10 @@ namespace ContactBookApp.Application.Services.Interfaces
     public interface IUserService
     {
         Task<StandardResponse<UserResponseDto>> CreateUserAsync(UserRequestDto userRequestDto);
-        Task<StandardResponse<IEnumerable<UserResponseDto>>> GetAllUserAsync();
+        Task<StandardResponse<(IEnumerable<UserResponseDto>, MetaData pagingData)>> GetAllUserAsync(UserRequestInputParameter parameter);
         Task<StandardResponse<UserResponseDto>> GetUserByIdAsync(int id);
         Task<StandardResponse<UserResponseDto>> GetUserByEmailAsync(string email);
-        Task<StandardResponse<UserResponseDto>> DeleteUserByIdAsync(int id);
+        Task<StandardResponse<UserResponseDto>> DeleteUserAsync(int id);
         Task<StandardResponse<UserResponseDto>> UpdateUserAsync(int id, UserRequestDto userRequestDto);
     }
 }

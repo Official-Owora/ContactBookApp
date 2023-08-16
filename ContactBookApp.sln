@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactBookApp.WebApi", "ContactBookApp.WebApi\ContactBookApp.WebApi.csproj", "{E7A60C1F-DD26-4A32-817A-A0497EC687A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactBookApp.WebApi", "ContactBookApp.WebApi\ContactBookApp.WebApi.csproj", "{E7A60C1F-DD26-4A32-817A-A0497EC687A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactBookApp.Domain", "ContactBookApp.Domain\ContactBookApp.Domain.csproj", "{869E5697-674C-4BFF-9940-2F89ADC39AB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactBookApp.Domain", "ContactBookApp.Domain\ContactBookApp.Domain.csproj", "{869E5697-674C-4BFF-9940-2F89ADC39AB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactBookApp.Application", "ContactBookApp.Application\ContactBookApp.Application.csproj", "{2CFAD615-B36F-4A99-A282-CCB00189C5EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactBookApp.Application", "ContactBookApp.Application\ContactBookApp.Application.csproj", "{2CFAD615-B36F-4A99-A282-CCB00189C5EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactBookApp.Infrastructure", "ContactBookApp.Infrastructure\ContactBookApp.Infrastructure.csproj", "{51942F4C-A014-448D-B7AD-DA7F7889B2A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactBookApp.Infrastructure", "ContactBookApp.Infrastructure\ContactBookApp.Infrastructure.csproj", "{51942F4C-A014-448D-B7AD-DA7F7889B2A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactBook.Shared", "ContactBook.Shared\ContactBook.Shared.csproj", "{74C30F4C-02FE-4B9C-A073-1B880DC1942A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{51942F4C-A014-448D-B7AD-DA7F7889B2A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51942F4C-A014-448D-B7AD-DA7F7889B2A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51942F4C-A014-448D-B7AD-DA7F7889B2A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74C30F4C-02FE-4B9C-A073-1B880DC1942A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C30F4C-02FE-4B9C-A073-1B880DC1942A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C30F4C-02FE-4B9C-A073-1B880DC1942A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C30F4C-02FE-4B9C-A073-1B880DC1942A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

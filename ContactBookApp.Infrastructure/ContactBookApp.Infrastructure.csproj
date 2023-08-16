@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ContactBook.Shared\ContactBook.Shared.csproj" />
     <ProjectReference Include="..\ContactBookApp.Domain\ContactBookApp.Domain.csproj" />
   </ItemGroup>
 
