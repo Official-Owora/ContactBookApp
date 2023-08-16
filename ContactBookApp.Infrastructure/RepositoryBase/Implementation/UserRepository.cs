@@ -25,7 +25,7 @@ namespace ContactBookApp.Infrastructure.RepositoryBase.Implementation
             var count = await users.CountAsync();
             return new PagedList<User>(result, count, parameter.PageNumber, parameter.PageSize);
         }
-        public async Task<User> GetUserByIdAsync(int id)
+        public async Task<User> GetUserByIdAsync(string id)
         {
             return await users.Where(u => u.Id.Equals(id)).FirstOrDefaultAsync();
         }
@@ -34,7 +34,7 @@ namespace ContactBookApp.Infrastructure.RepositoryBase.Implementation
         {
             return await users.Where(u => u.Email.Contains(email, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefaultAsync();
         }
-        public async Task<User> Delete(int id)
+        public async Task<User> Delete(string id)
         {
             return await users.FindAsync(id);
         }

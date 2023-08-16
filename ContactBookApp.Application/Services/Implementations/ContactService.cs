@@ -46,7 +46,7 @@ namespace ContactBookApp.Application.Services.Implementations
             var contactToReturn = _mapper.Map<IEnumerable<ContactResponseDto>>(result);
             return StandardResponse<(IEnumerable<ContactResponseDto>, MetaData)>.Success("All contacts successfully retrieved",(contactToReturn, result.MetaData), 200);
         }
-        public async Task<StandardResponse<ContactResponseDto>> GetContactByIdAsync(int id)
+        public async Task<StandardResponse<ContactResponseDto>> GetContactByIdAsync(string id)
         {
             var getContactById = await _unitOfWork.ContactRepository.GetContactByIdAsync(id);
             var contactToReturn = _mapper.Map<ContactResponseDto>(getContactById);
@@ -58,7 +58,7 @@ namespace ContactBookApp.Application.Services.Implementations
             var contactToReturn = _mapper.Map<ContactResponseDto>(getByEmail);
             return StandardResponse<ContactResponseDto>.Success($"Successfully retrieved a contact {getByEmail.Id}", contactToReturn , 200);
         }
-        public async Task<StandardResponse<ContactResponseDto>> DeleteContactAsync(int id)
+        public async Task<StandardResponse<ContactResponseDto>> DeleteContactAsync(string id)
         {
             _logger.LogInformation($"Checking if the user with Id {id} exists");
             var contactToBeDeleted = await _unitOfWork.ContactRepository.GetContactByIdAsync(id);
@@ -73,32 +73,8 @@ namespace ContactBookApp.Application.Services.Implementations
             return StandardResponse<ContactResponseDto>.Success($"Successfully deleted a contact {contactToBeDeleted.FirstName } {contactToBeDeleted.LastName}", contactToReturn, 200);
                 
         }
-       /* public async Task<StandardResponse<List<ContactResponseDto>>> SearchContactsByKeywordAsync(string keyword)
-        {
-            var searchResults = await _unitOfWork.ContactRepository.SearchContactsByKeywordAsync(keyword);
 
-            if (searchResults == null || searchResults.Count == 0)
-            {
-                return StandardResponse<List<ContactResponseDto>>.Failed($"No contacts found with keyword '{keyword}'", 404);
-            }
-
-            var matchingContacts = searchResults
-                .Where(contact =>
-                    contact.FirstName.Contains(keyword) ||
-                    contact.LastName.Contains(keyword) ||
-                    contact.Email.Contains(keyword))
-                .ToList();
-
-            if (matchingContacts.Count == 0)
-            {
-                return StandardResponse<List<ContactResponseDto>>.Failed($"No contacts found with keyword '{keyword}'", matchingContacts, 404);
-            }
-
-            var contactsToReturn = _mapper.Map<List<ContactResponseDto>>(matchingContacts);
-            return StandardResponse<List<ContactResponseDto>>.Success($"Successfully retrieved contacts with keyword '{keyword}'", contactsToReturn, 200);
-        }*/
-
-        public async Task<StandardResponse<ContactResponseDto>> UpdateContactAsync(int id, ContactRequestDto contactRequestDto)
+        public async Task<StandardResponse<ContactResponseDto>> UpdateContactAsync(string id, ContactRequestDto contactRequestDto)
         {
             var checkContactExists = await _unitOfWork.ContactRepository.GetContactByIdAsync(id);
             if (checkContactExists == null)

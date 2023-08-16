@@ -30,7 +30,7 @@ namespace ContactBookApp.Infrastructure.RepositoryBase.Implementation
             return await _contacts.Where(c => c.Email.Contains(email, StringComparison.InvariantCultureIgnoreCase))
                 .FirstOrDefaultAsync();
         }
-        public async Task<Contact> GetContactByIdAsync(int id)
+        public async Task<Contact> GetContactByIdAsync(string id)
         {
             return await _contacts.FindAsync(id);
         }

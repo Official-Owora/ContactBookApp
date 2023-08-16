@@ -8,14 +8,6 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//Serilog Configuration
-var logger = new LoggerConfiguration()
-  .ReadFrom.Configuration(builder.Configuration)
-  .Enrich.FromLogContext()
-  .CreateLogger();
-builder.Logging.ClearProviders();
-builder.Logging.AddSerilog(logger);
-
 // Add services to the container
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
@@ -24,7 +16,16 @@ builder.Services.ResolveDependencyInjection();
 builder.Services.AddAuthentication();
 builder.Services.ConfigureIdentity();
 builder.Services.ConfigureJWT(builder.Configuration);
+builder.Services.ConfigureImageService();
 //builder.Services.ConfigureSwaggerAuth();
+
+//Serilog Configuration
+var logger = new LoggerConfiguration()
+  .ReadFrom.Configuration(builder.Configuration)
+  .Enrich.FromLogContext()
+  .CreateLogger();
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -33,7 +33,7 @@ namespace ContactBookApp.WebApi.Controllers
         // GET api/<ContactController>/5
         [Authorize]
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetContactByIdAsync(int id) 
+        public async Task<IActionResult> GetContactByIdAsync(string id) 
         {
             var result = await _contactService.GetContactByIdAsync(id);
             return Ok(result);
@@ -60,7 +60,7 @@ namespace ContactBookApp.WebApi.Controllers
         // PUT api/<ContactController>/5
         [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateContactAsync(int id, [FromBody] ContactRequestDto contactRequestDto)
+        public async Task<IActionResult> UpdateContactAsync(string id, [FromBody] ContactRequestDto contactRequestDto)
         {
             var result = await _contactService.UpdateContactAsync(id, contactRequestDto);
             return Ok(result);
@@ -69,7 +69,7 @@ namespace ContactBookApp.WebApi.Controllers
         // DELETE api/<ContactController>/5
         [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteContactAsync(int id)
+        public async Task<IActionResult> DeleteContactAsync(string id)
         {
             var result = await _contactService.DeleteContactAsync(id);
             return Ok(result);

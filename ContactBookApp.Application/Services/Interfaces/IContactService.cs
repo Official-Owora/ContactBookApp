@@ -9,9 +9,9 @@ namespace ContactBookApp.Application.Services.Interfaces
     {
         Task<StandardResponse<ContactResponseDto>> CreateContactAsync(ContactRequestDto contactRequestDto);
         Task<StandardResponse<(IEnumerable<ContactResponseDto>, MetaData pagingData)>> GetAllContactAsync(ContactRequestInputParameter parameter);
-        Task<StandardResponse<ContactResponseDto>> GetContactByIdAsync(int id);
+        Task<StandardResponse<ContactResponseDto>> GetContactByIdAsync(string id);
         Task<StandardResponse<ContactResponseDto>> GetContactByEmailAsync(string email);
-        Task<StandardResponse<ContactResponseDto>> DeleteContactAsync(int id);
-        Task<StandardResponse<ContactResponseDto>> UpdateContactAsync(int id, ContactRequestDto contactRequestDto);
+        Task<StandardResponse<ContactResponseDto>> DeleteContactAsync(string id);
+        Task<StandardResponse<ContactResponseDto>> UpdateContactAsync(string id, ContactRequestDto contactRequestDto);
     }
 }

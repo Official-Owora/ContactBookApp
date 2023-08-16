@@ -9,6 +9,6 @@ namespace ContactBookApp.Infrastructure.RepositoryBase.Abstraction
     {
         Task<PagedList<Contact>> GetAllContactAsync(ContactRequestInputParameter parameter);
         Task<Contact> GetContactByEmailAsync(string email);
-        Task<Contact> GetContactByIdAsync(int id);
+        Task<Contact> GetContactByIdAsync(string id);
     }
 }

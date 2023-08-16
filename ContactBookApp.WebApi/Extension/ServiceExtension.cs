@@ -67,7 +67,7 @@ namespace ContactBookApp.WebApi.ServiceExtension
         {
             services.AddSwaggerGen(opt =>
             {
-                opt.SwaggerDoc("v1", new OpenApiInfo { Title = "ContactBookAPP", Version = "v1" });
+                opt.SwaggerDoc("v1", new OpenApiInfo { Title = "ContactBookAPP API", Version = "v1" });
                 opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     In = ParameterLocation.Header,

@@ -33,7 +33,7 @@ namespace ContactBookApp.WebApi.Controllers
         // GET api/<UserController>/5
         //[Authorize]
         [HttpGet("byId/{id}")]
-        public async Task<IActionResult> GetUserByIdAsync(int id) 
+        public async Task<IActionResult> GetUserByIdAsync(string id) 
         {
             var result = await _userService.GetUserByIdAsync(id);
             return Ok(result);
@@ -51,7 +51,7 @@ namespace ContactBookApp.WebApi.Controllers
         // PUT api/<UserController>/5
         //[Authorize]
         [HttpPut("user/put/{id}")]
-        public async Task<IActionResult> UpdateUserAsync(int id, [FromBody] UserRequestDto userRequestDto)
+        public async Task<IActionResult> UpdateUserAsync(string id, [FromBody] UserRequestDto userRequestDto)
         {
             var result = await _userService.UpdateUserAsync(id, userRequestDto);
             return Ok(result);
@@ -59,11 +59,24 @@ namespace ContactBookApp.WebApi.Controllers
 
         // DELETE api/<UserController>/5
         //[Authorize(Roles = "Admin")]
-        [HttpDelete("user/delet/{id}")]
-        public async Task<IActionResult> DeleteUserAsync(int id)
+        [HttpDelete("user/delete/{id}")]
+        public async Task<IActionResult> DeleteUserAsync(string id)
         {
             var result = await _userService.DeleteUserAsync(id);
             return Ok(result);
+        }
+
+        //POST api/<UserController>/5
+        //[Authorize]
+        [HttpPost("image/{id}")]
+        public IActionResult UploadProfileImageAsync(string id, IFormFile file)
+        {
+            var result = _userService.UploadProfileImageAsync(id, file);
+            if(result.Result.Succeeded)
+            {
+                return Ok(new {ImageUrl = result.Result.Data.Item2});
+            }
+            return NotFound();
         }
     }
 }
